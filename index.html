@@ -3,168 +3,722 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phira Studios — Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Phira Studios — Where AI Meets Craft</title>
+    <meta name="description" content="Phira Studios — AI-powered websites, process automation, and product photography for businesses that demand excellence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --burgundy: #600E13;
+            --burgundy-dark: #3E0A0E;
+            --burgundy-light: #8B2027;
+            --slate: #5C6B73;
+            --slate-light: #8A9499;
+            --offwhite: #EAEBED;
+            --white: #FFFFFF;
+            --cream: #F8F6F3;
         }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #EAEBED 0%, #ffffff 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            color: #5C6B73;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Decorative background element */
-        body::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(96, 14, 19, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        body::after {
-            content: '';
-            position: absolute;
-            bottom: -300px;
-            left: -300px;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(92, 107, 115, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 600px;
-            position: relative;
-            z-index: 1;
-            animation: fadeUp 1.2s ease-out;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 400;
-            color: #600E13;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: #600E13;
-            margin: 2rem auto;
-            opacity: 0.4;
-        }
-
-        .tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
             font-weight: 300;
-            color: #5C6B73;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            margin-bottom: 3rem;
-        }
-
-        .message {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-            font-weight: 300;
-            font-style: italic;
-            color: #5C6B73;
             line-height: 1.6;
+            color: var(--slate);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(96, 14, 19, 0.85);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+        nav.scrolled { background: rgba(255,255,255,0.95); box-shadow: 0 2px 30px rgba(0,0,0,0.05); }
+        nav .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem; font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--offwhite);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        nav.scrolled .logo { color: var(--burgundy); }
+        nav ul { display: flex; gap: 2.5rem; list-style: none; }
+        nav ul a {
+            color: var(--offwhite);
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled ul a { color: var(--slate); }
+        nav ul a:hover { opacity: 0.7; }
+        @media (max-width: 768px) { nav ul { display: none; } }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative; overflow: hidden;
+            background-image: linear-gradient(135deg, rgba(62,10,14,0.4) 0%, rgba(96,14,19,0.5) 100%), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--burgundy);
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(139,32,39,0.6) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(62,10,14,0.7) 0%, transparent 50%),
+                linear-gradient(180deg, #600E13 0%, #3E0A0E 100%);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 800px;
+            animation: heroFade 1.5s ease-out;
+        }
+        @keyframes heroFade {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-eyebrow {
+            color: var(--offwhite);
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-weight: 300;
+            color: var(--offwhite);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title em { font-style: italic; font-weight: 400; }
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            color: var(--offwhite);
+            opacity: 0.85;
+            max-width: 540px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+        .hero-ctas {
+            display: flex; gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1.1rem 2.5rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background: var(--offwhite);
+            color: var(--burgundy);
+            border-color: var(--offwhite);
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--offwhite);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--offwhite);
+            border-color: rgba(234,235,237,0.4);
+        }
+        .btn-secondary:hover {
+            border-color: var(--offwhite);
+            transform: translateY(-2px);
+        }
+        .scroll-indicator {
+            position: absolute; bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            color: var(--offwhite);
+            opacity: 0.5;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            z-index: 2;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* SECTIONS */
+        section { padding: 8rem 0; }
+        @media (max-width: 768px) { section { padding: 5rem 0; } }
+        .section-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.25rem, 5vw, 3.75rem);
+            font-weight: 300;
+            color: var(--burgundy);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        .section-title em { font-style: italic; }
+        .section-intro {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--slate);
+            max-width: 580px;
+            margin-bottom: 4rem;
+        }
+        .text-center { text-align: center; }
+        .text-center .section-intro { margin-left: auto; margin-right: auto; }
+
+        /* SERVICES */
+        .services { background: var(--cream); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 900px) {
+            .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 4px;
+            transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+            border: 1px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -20px rgba(96,14,19,0.15);
+            border-color: rgba(96,14,19,0.1);
+        }
+        .service-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--burgundy);
+            opacity: 0.4;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .service-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(92,107,115,0.15);
+        }
+        .service-features li {
+            font-size: 0.85rem;
+            color: var(--slate);
+            padding: 0.4rem 0;
+            display: flex;
+            gap: 0.75rem;
+        }
+        .service-features li::before {
+            content: '—';
+            color: var(--burgundy);
+            opacity: 0.6;
+        }
+
+        /* ABOUT */
+        .about { background: var(--white); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        .about-visual {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-visual::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(139,32,39,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, rgba(234,235,237,0.1) 0%, transparent 50%);
+        }
+        .about-visual-text {
+            position: absolute;
+            bottom: 3rem; left: 3rem; right: 3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--offwhite);
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+        .about-content p:first-of-type {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--burgundy);
             margin-bottom: 2rem;
         }
 
-        .status {
-            display: inline-flex;
-            align-items: center;
+        /* NEWSLETTER */
+        .newsletter {
+            background: var(--burgundy);
+            color: var(--offwhite);
+        }
+        .newsletter .section-eyebrow { color: var(--offwhite); opacity: 0.7; }
+        .newsletter .section-title { color: var(--offwhite); }
+        .newsletter .section-intro { color: var(--offwhite); opacity: 0.85; }
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-input-group {
+            display: flex;
             gap: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: #600E13;
-            margin-top: 2rem;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid rgba(96, 14, 19, 0.2);
+            background: rgba(234,235,237,0.08);
+            border: 1px solid rgba(234,235,237,0.2);
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
+            padding: 0.4rem;
         }
-
-        .pulse {
-            width: 8px;
-            height: 8px;
-            background: #600E13;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+        .newsletter-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            color: var(--offwhite);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
         }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.3);
-            }
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.75rem;
-            color: #5C6B73;
-            opacity: 0.6;
+        .newsletter-input::placeholder { color: rgba(234,235,237,0.5); }
+        .newsletter-btn {
+            background: var(--offwhite);
+            color: var(--burgundy);
+            border: none;
+            padding: 0.8rem 1.75rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
             letter-spacing: 0.1em;
-            z-index: 1;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .newsletter-btn:hover {
+            background: var(--white);
+            transform: translateX(2px);
+        }
+        .newsletter-perks {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            flex-wrap: wrap;
+        }
+        .newsletter-perks span::before { content: '✓ '; margin-right: 0.3rem; }
+
+        /* FAQ */
+        .faq { background: var(--cream); }
+        .faq-grid { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            border-bottom: 1px solid rgba(96,14,19,0.15);
+            padding: 2rem 0;
+            cursor: pointer;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .faq-q-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--burgundy);
+            line-height: 1.3;
+        }
+        .faq-icon {
+            color: var(--burgundy);
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--burgundy-dark);
+            color: var(--offwhite);
+            padding: 4rem 0 2rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) {
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+        }
+        .footer-brand .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--offwhite);
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--offwhite);
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a {
+            color: var(--offwhite);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-bottom {
+            border-top: 1px solid rgba(234,235,237,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        @media (max-width: 768px) {
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="logo">Phira Studios</h1>
-        <div class="divider"></div>
-        <p class="tagline">AI Solutions · Web Design · Photography</p>
-        <p class="message">Something beautiful is being crafted.<br>We'll be live soon.</p>
-        <div class="status">
-            <span class="pulse"></span>
-            <span>Site launching shortly</span>
+
+    <nav id="nav">
+        <div class="logo">Phira Studios</div>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Phira Studios</p>
+            <h1 class="hero-title">Where AI meets <em>craft.</em></h1>
+            <p class="hero-subtitle">Websites, automation, and product photography for businesses that demand excellence — designed with precision, delivered with care.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">Book a Free Call</a>
+                <a href="#newsletter" class="btn btn-secondary">Join Newsletter</a>
+            </div>
         </div>
-    </div>
-    <div class="footer">© 2026 Phira Studios</div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-eyebrow">What We Do</span>
+                <h2 class="section-title">Three services. <em>One vision.</em></h2>
+                <p class="section-intro">We combine the precision of AI with the soul of craftsmanship — to help businesses move faster, look better, and operate smarter.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-number">01</div>
+                    <h3 class="service-title">Web Design &amp; Development</h3>
+                    <p class="service-description">Bespoke websites that feel like you — built with modern tools, optimized for conversion, designed to last.</p>
+                    <ul class="service-features">
+                        <li>Custom design &amp; build</li>
+                        <li>Mobile-first, fast loading</li>
+                        <li>SEO &amp; analytics ready</li>
+                        <li>Ongoing care available</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">02</div>
+                    <h3 class="service-title">AI Process Automation</h3>
+                    <p class="service-description">We map your workflows, identify what AI can handle, and build the systems that give you back your time.</p>
+                    <ul class="service-features">
+                        <li>Workflow audit &amp; strategy</li>
+                        <li>Custom AI integrations</li>
+                        <li>Setup &amp; monthly upkeep</li>
+                        <li>Real, measurable results</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">03</div>
+                    <h3 class="service-title">Product Photography</h3>
+                    <p class="service-description">AI-powered product imagery that's consistent, on-brand, and ready for any platform — at a fraction of traditional cost.</p>
+                    <ul class="service-features">
+                        <li>Catalog &amp; lifestyle imagery</li>
+                        <li>Consistent on-brand look</li>
+                        <li>Packages by volume</li>
+                        <li>Fast delivery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <p class="about-visual-text">"We don't sell AI. We sell better businesses, made possible by AI."</p>
+                </div>
+                <div class="about-content fade-in">
+                    <span class="section-eyebrow">Why Phira</span>
+                    <h2 class="section-title">Built for businesses that <em>don't have time</em> for tech.</h2>
+                    <p>Most agencies sell you tools. We sell you outcomes.</p>
+                    <p>AI is moving fast — too fast for most business owners to keep up with. Phira Studios exists to bridge that gap. We translate the noise into clarity, and turn capability into competitive advantage.</p>
+                    <p>Whether you need a website that converts, an automation that saves you ten hours a week, or imagery that finally matches your brand — we build it with the rigor of a studio and the speed of AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+        <div class="container text-center">
+            <div class="fade-in">
+                <span class="section-eyebrow">For the Curious</span>
+                <h2 class="section-title">Not sure where to start <em>with AI?</em></h2>
+                <p class="section-intro">Get our weekly email — practical AI tools, real business examples, and what's actually worth your time.</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <div class="newsletter-input-group">
+                        <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </div>
+                    <div class="newsletter-perks">
+                        <span>Every Monday</span>
+                        <span>5-min read</span>
+                        <span>No spam, ever</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-eyebrow">Common Questions</span>
+                <h2 class="section-title">Things people <em>ask us.</em></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">How quickly can you deliver a website?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">Most websites are completed within 2–4 weeks, depending on scope and content readiness. We work in tight, focused sprints so you see progress every week — not just at the end.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">What does AI process automation actually look like?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">It depends on your business. We might automate customer onboarding, lead qualification, content workflows, reporting, or anything else that's eating your hours. We start with a 30-minute call to understand your processes, then propose what makes sense.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">Do you work with international clients?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">Yes — we work in English with clients across any time zone. From the US to Australia and everywhere in between. All communication, contracts, and deliverables are in English.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">How is your product photography different?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">We use AI to generate consistent, on-brand product imagery without the cost and time of traditional photo shoots. Perfect for e-commerce catalogs, lifestyle imagery, and brand consistency across hundreds of SKUs.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">What does the engagement process look like?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">Book a free 30-minute call. We'll discuss your needs, scope, and goals. Within 48 hours you'll receive a clear proposal with timeline and pricing. No surprises, no fluff.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span class="faq-q-text">What if I'm not sure which service I need?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">That's exactly what the discovery call is for. Many of our clients start with one service and discover they need more. We'll help you map what makes sense — without pressure.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Phira Studios</div>
+                    <p>AI-powered websites, process automation, and product photography for businesses that demand excellence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">AI Automation</a></li>
+                        <li><a href="#services">Product Photography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#contact">Book a Call</a></li>
+                        <li><a href="mailto:hello@phirastudios.com">hello@phirastudios.com</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Phira Studios. All rights reserved.</div>
+                <div>Made with care, powered by AI.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        function toggleFaq(item) {
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert('Thanks! We\'ll add ' + email + ' to the list. (Connect this to MailerLite in next step.)');
+            e.target.reset();
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
