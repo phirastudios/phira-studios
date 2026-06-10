@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180">
+  <defs>
+    <style>
+      .bg { fill: #F8F6F3; }
+      .phira { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 300; fill: #600E13; letter-spacing: 0.40em; }
+      .studios { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-style: italic; font-weight: 300; fill: #600E13; }
+      .rule { stroke: #600E13; stroke-width: 0.6; }
+    </style>
+  </defs>
+  <rect class="bg" width="600" height="180"/>
+
+  <line class="rule" x1="200" y1="55" x2="408" y2="55"/>
+  <text class="phira" x="312" y="105" font-size="44" text-anchor="middle">PHIRA</text>
+  <text class="studios" x="304" y="138" font-size="20" text-anchor="middle">studios</text>
+</svg>

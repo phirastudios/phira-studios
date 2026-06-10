@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <style>
+      .bg { fill: #600E13; }
+      .phira { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 300; fill: #EAEBED; letter-spacing: 0.42em; }
+      .studios { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-style: italic; font-weight: 300; fill: #EAEBED; }
+      .meta { font-family: 'Inter', 'Helvetica', sans-serif; font-weight: 400; fill: #EAEBED; letter-spacing: 0.35em; }
+      .rule { stroke: #EAEBED; stroke-width: 0.7; }
+    </style>
+  </defs>
+  <rect class="bg" width="800" height="400"/>
+
+  <line class="rule" x1="220" y1="140" x2="580" y2="140"/>
+  <text class="meta" x="400" y="125" font-size="9" text-anchor="middle">EST. MMXXVI</text>
+  <text class="phira" x="408" y="220" font-size="64" text-anchor="middle">PHIRA</text>
+  <text class="studios" x="400" y="262" font-size="28" text-anchor="middle">studios</text>
+  <line class="rule" x1="220" y1="290" x2="580" y2="290"/>
+  <text class="meta" x="400" y="312" font-size="8" text-anchor="middle">DESIGN  ·  AUTOMATION  ·  IMAGERY</text>
+</svg>

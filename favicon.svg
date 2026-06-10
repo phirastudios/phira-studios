@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .bg { fill: #600E13; }
+      .letter { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 400; fill: #F8F6F3; }
+    </style>
+  </defs>
+  <rect class="bg" width="64" height="64" rx="6"/>
+  <text class="letter" x="32" y="46" font-size="46" text-anchor="middle">P</text>
+</svg>

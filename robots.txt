@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /upload-to-github/
+
+Sitemap: https://phirastudios.com/sitemap.xml
